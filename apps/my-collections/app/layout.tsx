@@ -22,7 +22,6 @@ const theme = createTheme();
 const StyledBody = styled("body")({
   margin: "5vh 0 0",
   padding: 0,
-  minHeight: "300vh",
 });
 
 export default function RootLayout({
