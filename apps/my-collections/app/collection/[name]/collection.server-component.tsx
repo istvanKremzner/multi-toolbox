@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { Box, Grid } from "ui";
 import { ICollectionItem } from "./(collection-item)/collection-item.type";
-import { ICollection } from "./collection.type";
+import { ICollection } from "../collection.type";
 
 interface ICollectionProps {
   collection: ICollection;

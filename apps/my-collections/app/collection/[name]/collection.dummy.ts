@@ -1,7 +1,9 @@
-import { CollectionType, ICollection } from "./collection.type";
+import { CollectionType, ICollection } from "../collection.type";
 
 export const dummyCollection: ICollection = {
   id: "dummy-collection",
+  name: "Games",
+  description: "A list of my games",
   type: CollectionType.Media,
   items: [
     {

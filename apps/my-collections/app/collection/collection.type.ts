@@ -1,4 +1,4 @@
-import { ICollectionItem } from "./(collection-item)/collection-item.type";
+import { ICollectionItem } from "./[name]/(collection-item)/collection-item.type";
 
 export enum CollectionType {
   List,
@@ -8,6 +8,8 @@ export enum CollectionType {
 export interface ICollection {
   id: string;
 
+  name: string;
+  description?: string;
   type: CollectionType;
   items: ICollectionItem[];
 }

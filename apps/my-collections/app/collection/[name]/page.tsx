@@ -1,5 +1,7 @@
-import { GetServerSideProps } from "next";
 import { FC } from "react";
+import { CollectionItem } from "./(collection-item)/collection-item.component";
+import { dummyCollection } from "./collection.dummy";
+import { Collection } from "./collection.server-component";
 
 interface ICollectionPageProps {
   params: Record<"name", string>;
@@ -8,13 +10,7 @@ interface ICollectionPageProps {
 const CollectionPage: FC<ICollectionPageProps> = ({ params }) => {
   // TODO: fetch collection from DB
 
-  return (
-    <div>
-      {Object.keys(params).map((param) => (
-        <p key={param}>param - {(params as any)[param]}</p>
-      ))}
-    </div>
-  );
+  return <Collection collection={dummyCollection} item={CollectionItem} />;
 };
 
 export default CollectionPage;

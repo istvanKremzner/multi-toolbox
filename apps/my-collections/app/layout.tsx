@@ -35,7 +35,7 @@ export default function RootLayout({
       <StyledBody>
         <ThemeProvider theme={theme}>
           <Navbar items={navItem} />
-          {children}
+          <main>{children}</main>
         </ThemeProvider>
       </StyledBody>
     </html>
