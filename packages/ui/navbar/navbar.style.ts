@@ -12,6 +12,7 @@ export const StyledNavbar = styled("nav")(({ theme }) => ({
   width: "100%",
   position: "fixed",
   top: 0,
+  zIndex: 100,
 
   color: theme.palette.primary.contrastText,
   backgroundColor: theme.palette.primary.dark,
@@ -35,6 +36,8 @@ export const StyledNavbar = styled("nav")(({ theme }) => ({
   },
 
   "&:hover": {
+    opacity: 1,
+
     ul: {
       height: NAVBAR_HEIGHT.hovered,
     },

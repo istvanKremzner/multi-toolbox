@@ -18,7 +18,7 @@ const NavbarItem: FC<INavbarItemProps> = ({
   const router = useRouter();
 
   const handleClick = useCallback(
-    (event: MouseEvent) => {
+    (event: React.MouseEvent) => {
       if (onClick) {
         onClick(event);
       }
