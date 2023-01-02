@@ -16,7 +16,7 @@ export const StyledCard = styled(Card)(({ theme }) => ({
     },
   },
 
-  transition: "all .25s",
+  transition: "all .25s ease-in-out",
 
   ":hover": {
     transform: "scale(1.08)",

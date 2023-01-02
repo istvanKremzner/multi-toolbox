@@ -1,30 +1,27 @@
 "use client";
 
-import { FC } from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  styled,
-  Typography,
-} from "ui";
 import Image from "next/image";
-import { ICollectionItem } from "./collection-item.type";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { FC, useCallback } from "react";
+import { CardContent, CardHeader, CardMedia, Typography } from "ui";
 import placeholderImage from "./animal.jpeg";
+import { StyledCard } from "./collection-item.style";
+import { ICollectionItem } from "./collection-item.type";
 
 interface ICollectionItemProps {
   item: ICollectionItem;
 }
 
-const StyledCard = styled(Card)({
-  width: "clamp(200px, 25%, 500px)",
-  height: "fit-content",
-});
-
 export const CollectionItem: FC<ICollectionItemProps> = ({ item }) => {
+  const pathName = usePathname();
+  const router = useRouter();
+
+  const handleClick = useCallback(() => {
+    router.push(`${pathName}?item=${item.id}`);
+  }, [item.id, pathName, router]);
+
   return (
-    <StyledCard>
+    <StyledCard onClick={handleClick}>
       <CardHeader
         title={item.name}
         titleTypographyProps={{ align: "center" }}

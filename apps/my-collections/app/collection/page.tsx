@@ -8,17 +8,7 @@ import { dummyCollection } from "./[name]/collection.dummy";
 const CollectionsPage = () => {
   //TODO: add pocket-base
 
-  const collections = [
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-    dummyCollection,
-  ];
+  const collections = [dummyCollection];
 
   return (
     <Box

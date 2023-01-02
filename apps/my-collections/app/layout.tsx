@@ -20,8 +20,11 @@ const navItem = [
 const theme = createTheme();
 
 const StyledBody = styled("body")({
-  margin: "5vh 0 0",
   padding: 0,
+
+  [theme.breakpoints.up("md")]: {
+    margin: "5vh 0 0",
+  },
 });
 
 export default function RootLayout({
