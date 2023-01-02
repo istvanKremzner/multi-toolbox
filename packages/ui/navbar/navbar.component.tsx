@@ -1,6 +1,7 @@
 import { FC, useEffect, useRef } from "react";
 import NavbarItem, { INavbarItemProps } from "./navbar-item.component";
 import { StyledNavbar } from "./navbar.style";
+import { Sidebar } from "./sidebar";
 
 interface INavbarProps {
   items: INavbarItemProps[];
@@ -33,12 +34,16 @@ export const Navbar: FC<INavbarProps> = ({ items, onClick, hideAt = 400 }) => {
   }, [hideAt]);
 
   return (
-    <StyledNavbar ref={navbarRef} onClick={onClick}>
-      <ul>
-        {items.map((item) => (
-          <NavbarItem key={item.title} {...item} />
-        ))}
-      </ul>
-    </StyledNavbar>
+    <>
+      <StyledNavbar data-hidden-below-xl ref={navbarRef} onClick={onClick}>
+        <ul>
+          {items.map((item) => (
+            <NavbarItem key={item.title} {...item} />
+          ))}
+        </ul>
+      </StyledNavbar>
+
+      <Sidebar items={items} />
+    </>
   );
 };

@@ -1,3 +1,4 @@
+import { SwipeableDrawer, lighten } from "@mui/material";
 import { styled } from "@mui/system";
 
 const NAVBAR_RADIUS = 16;
@@ -41,6 +42,10 @@ export const StyledNavbar = styled("nav")(({ theme }) => ({
     ul: {
       height: NAVBAR_HEIGHT.hovered,
     },
+  },
+
+  [theme.breakpoints.down("md")]: {
+    display: "none",
   },
 }));
 
