@@ -20,6 +20,7 @@ const navItem = [
 const theme = createTheme();
 
 const StyledBody = styled("body")({
+  backgroundColor: theme.palette.background.default,
   padding: 0,
 
   [theme.breakpoints.up("md")]: {
