@@ -18,7 +18,7 @@ export const Navbar: FC<INavbarProps> = ({ items, onClick, hideAt = 400 }) => {
       const distanceToTop = 1 - window.pageYOffset / hideAt + 0.5;
 
       if (navbarRef.current) {
-        navbarRef.current.style.top = `${isShown ? 0 : -100}px`;
+        navbarRef.current.style.top = `${isShown ? 4 : -100}px`;
         navbarRef.current.style.opacity = (
           isShown ? distanceToTop : 0
         ).toString();
