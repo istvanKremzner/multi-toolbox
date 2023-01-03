@@ -1,7 +1,7 @@
 import { styled, Card } from "ui";
 
 export const StyledCard = styled(Card)(({ theme }) => ({
-  width: "clamp(200px, 25%, 500px)",
+  width: "clamp(200px, 20%, 300px)",
   height: "fit-content",
 
   outline: `1px solid ${theme.palette.primary.light}`,
