@@ -53,11 +53,11 @@ export const StyledNavbarItem = styled("li")(({ theme }) => ({
   listStyle: "none",
   cursor: "pointer",
 
-  padding: "10px 64px",
+  padding: theme.spacing("10px", 8),
   fontSize: "1.2rem",
 
   ":hover": {
-    borderRadius: 32,
+    borderRadius: theme.spacing(4),
 
     backgroundColor: theme.palette.primary.contrastText,
     color: theme.palette.primary.dark,

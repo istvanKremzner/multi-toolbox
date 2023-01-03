@@ -1,8 +1,12 @@
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { IconButton } from "@mui/material";
 import { FC, useCallback, useState } from "react";
-import NavbarItem, { INavbarItemProps } from "../navbar-item.component";
-import { StyledIconContainer, StyledSidebar } from "./sidebar.style";
+import { INavbarItemProps } from "../navbar-item.component";
+import {
+  StyledHamburgerBarIcon,
+  StyledSidebar,
+  StyledSidebarItem,
+} from "./sidebar.style";
 
 interface ISidebarProps {
   items: INavbarItemProps[];
@@ -16,23 +20,27 @@ export const Sidebar: FC<ISidebarProps> = ({ items }) => {
 
   return (
     <div>
-      <StyledIconContainer data-open={isOpen}>
-        {!isOpen && <MenuIcon onClick={handleOpen} />}
-      </StyledIconContainer>
+      {!isOpen && (
+        <StyledHamburgerBarIcon>
+          <MenuIcon onClick={handleOpen} />
+        </StyledHamburgerBarIcon>
+      )}
 
       <StyledSidebar open={isOpen} onClose={handleClose} onOpen={handleOpen}>
-        {items.map((item) => (
-          <NavbarItem
-            key={item.title}
-            {...item}
-            onClick={(event) => {
-              if (item.onClick) {
-                item.onClick(event);
-              }
-              handleClose();
-            }}
-          />
-        ))}
+        <nav>
+          {items.map((item) => (
+            <StyledSidebarItem
+              key={item.title}
+              {...item}
+              onClick={(event) => {
+                if (item.onClick) {
+                  item.onClick(event);
+                }
+                handleClose();
+              }}
+            />
+          ))}
+        </nav>
       </StyledSidebar>
     </div>
   );
