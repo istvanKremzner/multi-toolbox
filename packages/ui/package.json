@@ -15,5 +15,13 @@
     "react": "^18.2.0",
     "tsconfig": "*",
     "typescript": "^4.5.2"
+  },
+  "peerDependencies": {
+    "@nextui-org/react": "^1.0.0-beta.11",
+    "@heroicons/react": "^2.0.13"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.11",
+    "@heroicons/react": "^2.0.13"
   }
 }
