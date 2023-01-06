@@ -19,5 +19,9 @@
   "peerDependencies": {
     "@nextui-org/react": "^1.0.0-beta.11",
     "@heroicons/react": "^2.0.13"
+  },
+  "dependencies": {
+    "@nextui-org/react": "^1.0.0-beta.11",
+    "@heroicons/react": "^2.0.13"
   }
 }
