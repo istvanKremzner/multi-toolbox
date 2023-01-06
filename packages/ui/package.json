@@ -23,5 +23,8 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.2",
     "styled-components": "^5.3.6"
+  },
+  "peerDependencies": {
+    "@nextui-org/react": "^1.0.0-beta.11"
   }
 }
