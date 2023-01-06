@@ -1,10 +1,10 @@
 "use client";
 
-import { Card, styled, Text } from "@nextui-org/react";
+import { Card, Text } from "@nextui-org/react";
 import { usePathname, useRouter } from "next/navigation";
 import { FC, useCallback } from "react";
+import { ICollectionItem } from "../../../../types";
 import placeholderImage from "./animal.jpeg";
-import { ICollectionItem } from "./collection-item.type";
 
 interface ICollectionItemProps {
   item: ICollectionItem;

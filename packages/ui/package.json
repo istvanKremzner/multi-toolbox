@@ -16,7 +16,7 @@
     "tsconfig": "*",
     "typescript": "^4.5.2"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.11",
     "@heroicons/react": "^2.0.13"
   }

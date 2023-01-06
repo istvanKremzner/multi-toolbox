@@ -3,7 +3,7 @@
 import { Card, Text } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 import { FC, useCallback } from "react";
-import { ICollection } from "../collection.type";
+import { ICollection } from "../../../types";
 
 interface ICollectionCardProps {
   collection: ICollection;
