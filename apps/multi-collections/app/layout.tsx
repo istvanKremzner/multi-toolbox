@@ -1,6 +1,7 @@
 "use client";
 
-import { NextUIProvider } from "@nextui-org/react";
+import { CreateTheme, NextUIProvider } from "@nextui-org/react";
+import React, { FC } from "react";
 import { Navbar } from "ui";
 import { useTheme } from "../theme/theme";
 
@@ -19,6 +20,11 @@ const navItems = [
   },
 ];
 
+const Provider = NextUIProvider as FC<{
+  theme: CreateTheme;
+  children: React.ReactNode;
+}>;
+
 export default function RootLayout({
   children,
 }: {
@@ -30,10 +36,10 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        <NextUIProvider theme={theme}>
+        <Provider theme={theme}>
           <Navbar items={navItems} />
           <main>{children}</main>
-        </NextUIProvider>
+        </Provider>
       </body>
     </html>
   );
