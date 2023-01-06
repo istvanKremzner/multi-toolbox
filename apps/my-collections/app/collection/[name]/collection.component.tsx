@@ -2,8 +2,8 @@
 
 import { Container } from "@nextui-org/react";
 import { FC } from "react";
-import { ICollection } from "../collection.type";
-import { CollectionItem } from "./(collection-item)";
+import { ICollection } from "../../../types/collection";
+import { CollectionItem } from "./(collection-item)/collection-item.component";
 
 interface ICollectionProps {
   collection: ICollection;

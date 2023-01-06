@@ -1,8 +1,8 @@
 "use client";
 
-import { NextUIProvider, styled } from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
 import { Navbar } from "ui";
-import { useTheme } from "./theme";
+import { useTheme } from "../theme/theme";
 
 const navItems = [
   {

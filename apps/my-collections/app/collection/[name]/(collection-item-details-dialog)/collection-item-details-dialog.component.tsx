@@ -3,8 +3,8 @@
 import { Modal, Text } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
-import { ICollectionItem } from "../(collection-item)/collection-item.type";
-import { dummyCollection } from "../collection.dummy";
+import { dummyCollection } from "../../../../test/collection.dummy";
+import { ICollectionItem } from "../../../../types";
 
 export const CollectionItemDetailsDialog = () => {
   const searchParams = useSearchParams();
@@ -30,9 +30,7 @@ export const CollectionItemDetailsDialog = () => {
 
   return (
     <Modal open={!!item} onClose={() => setItem(undefined)}>
-      {item && (
-          <Text>{item.name}</Text>
-      )}
+      {item && <Text>{item.name}</Text>}
     </Modal>
   );
 };

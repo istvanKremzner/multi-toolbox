@@ -1,9 +1,5 @@
-import { ICollectionItem } from "./[name]/(collection-item)/collection-item.type";
-
-export enum CollectionType {
-  List,
-  Media,
-}
+import { ICollectionItem } from "./collection-item.type";
+import { CollectionType } from "./collection-type.enum";
 
 export interface ICollection {
   id: string;

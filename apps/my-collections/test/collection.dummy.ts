@@ -1,4 +1,5 @@
-import { CollectionType, ICollection } from "../collection.type";
+import { ICollection } from "../types/collection";
+import { CollectionType } from "../types/collection/collection-type.enum";
 
 export const dummyCollection: ICollection = {
   id: "dummy-collection",

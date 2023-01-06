@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { CollectionItemDetailsDialog } from "./(collection-item-details-dialog)";
-import { dummyCollection } from "./collection.dummy";
+import { dummyCollection } from "../../../test/collection.dummy";
 import { Collection } from "./collection.component";
 
 interface ICollectionPageProps {

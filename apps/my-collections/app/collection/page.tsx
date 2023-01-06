@@ -2,7 +2,7 @@
 
 import { Container } from "@nextui-org/react";
 import { CollectionCard } from "./(collection-card)/collection-card.component";
-import { dummyCollection } from "./[name]/collection.dummy";
+import { dummyCollection } from "../../test/collection.dummy";
 
 const CollectionsPage = () => {
   //TODO: add pocket-base
