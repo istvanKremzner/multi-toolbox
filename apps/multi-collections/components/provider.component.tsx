@@ -16,5 +16,9 @@ const ThemeProvider = NextUIProvider as FC<{
 export const Providers: FC<IProvidersProps> = ({ children }) => {
   const theme = useTheme();
 
+  if (!ThemeProvider) {
+    return null;
+  }
+
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };

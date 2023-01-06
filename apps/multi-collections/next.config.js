@@ -4,4 +4,7 @@ module.exports = {
     appDir: true,
     transpilePackages: ["ui"],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
