@@ -1,8 +1,8 @@
 "use client";
 
+import { Modal, Text } from "@nextui-org/react";
 import { useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
-import { Dialog, Typography } from "ui";
 import { ICollectionItem } from "../(collection-item)/collection-item.type";
 import { dummyCollection } from "../collection.dummy";
 
@@ -29,12 +29,10 @@ export const CollectionItemDetailsDialog = () => {
   useCallback(handleSearchParamChange, [handleSearchParamChange]);
 
   return (
-    <Dialog open={!!item} onClose={() => setItem(undefined)}>
+    <Modal open={!!item} onClose={() => setItem(undefined)}>
       {item && (
-        <>
-          <Typography>{item.name}</Typography>
-        </>
+          <Text>{item.name}</Text>
       )}
-    </Dialog>
+    </Modal>
   );
 };

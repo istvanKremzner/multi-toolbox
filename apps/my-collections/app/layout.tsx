@@ -1,47 +1,40 @@
 "use client";
 
-import { createTheme, Navbar, styled, ThemeProvider } from "ui";
+import { NextUIProvider, styled } from "@nextui-org/react";
+import { Navbar } from "ui";
+import { useTheme } from "./theme";
 
-const navItem = [
+const navItems = [
   {
-    title: "Home",
-    url: "/",
+    label: "Home",
+    href: "/",
   },
   {
-    title: "Collections",
-    url: "/collection",
+    label: "Collections",
+    href: "/collection",
   },
   {
-    title: "About",
-    url: "/about",
+    label: "About",
+    href: "/about",
   },
 ];
-
-const theme = createTheme();
-
-const StyledBody = styled("body")({
-  backgroundColor: theme.palette.background.default,
-  padding: 0,
-
-  [theme.breakpoints.up("md")]: {
-    margin: "5vh 0 0",
-  },
-});
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const theme = useTheme();
+
   return (
     <html>
       <head></head>
-      <StyledBody>
-        <ThemeProvider theme={theme}>
-          <Navbar items={navItem} />
+      <body>
+        <NextUIProvider theme={theme}>
+          <Navbar items={navItems} />
           <main>{children}</main>
-        </ThemeProvider>
-      </StyledBody>
+        </NextUIProvider>
+      </body>
     </html>
   );
 }

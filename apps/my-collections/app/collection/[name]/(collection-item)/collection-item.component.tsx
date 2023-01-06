@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Card, styled, Text } from "@nextui-org/react";
+import { usePathname, useRouter } from "next/navigation";
 import { FC, useCallback } from "react";
-import { CardContent, CardHeader, CardMedia, Typography } from "ui";
 import placeholderImage from "./animal.jpeg";
-import { StyledCard } from "./collection-item.style";
 import { ICollectionItem } from "./collection-item.type";
 
 interface ICollectionItemProps {
@@ -21,36 +19,51 @@ export const CollectionItem: FC<ICollectionItemProps> = ({ item }) => {
   }, [item.id, pathName, router]);
 
   return (
-    <StyledCard onClick={handleClick}>
-      <CardHeader
-        title={item.name}
-        titleTypographyProps={{ align: "center" }}
-      />
+    <Card
+      isPressable
+      onPress={handleClick}
+      css={{
+        width: "clamp(200px, 20%, 300px)",
+        height: "fit-content",
 
-      <CardContent>
-        <Typography variant="body1" component="p">
-          {item.description}
-        </Typography>
+        borderRadius: "16px",
 
-        <CardMedia src={placeholderImage.src}>
-          <Image
-            src={placeholderImage.src}
-            alt="placeholder"
-            width={placeholderImage.width}
-            height={placeholderImage.height}
-            style={{
-              marginTop: 16,
-              width: "100%",
-              height: "100%",
-              aspectRatio: "initial",
-            }}
-          />
-        </CardMedia>
+        cursor: "pointer",
+
+        "&:hover": {
+          outline: `1px solid $primary`,
+
+          outlineColor: "$primary",
+          outlineWidth: 2,
+          transform: "scale(1.02)",
+        },
+      }}
+    >
+      <Card.Header title={item.name} />
+
+      <Card.Body>
+        <Text>{item.description}</Text>
+
+        <Card.Image
+          src={placeholderImage.src}
+          alt="placeholder"
+          width={placeholderImage.width}
+          height={placeholderImage.height}
+          css={{
+            padding: "$2",
+            borderRadius: "2rem",
+            height: "fit-content",
+          }}
+          containerCss={{
+            paddingTop: "20%",
+            height: "fit-content",
+          }}
+        />
 
         {item.images?.map((link) => (
-          <CardMedia src={link} />
+          <Card.Image src={link} />
         ))}
-      </CardContent>
-    </StyledCard>
+      </Card.Body>
+    </Card>
   );
 };

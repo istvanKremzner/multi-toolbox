@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { CollectionItem } from "./(collection-item)";
 import { CollectionItemDetailsDialog } from "./(collection-item-details-dialog)";
 import { dummyCollection } from "./collection.dummy";
-import { Collection } from "./collection.server-component";
+import { Collection } from "./collection.component";
 
 interface ICollectionPageProps {
   params: Record<"name", string>;
@@ -13,7 +12,7 @@ const CollectionPage: FC<ICollectionPageProps> = ({ params }) => {
 
   return (
     <section>
-      <Collection collection={dummyCollection} item={CollectionItem} />
+      <Collection collection={dummyCollection} />
 
       <CollectionItemDetailsDialog />
     </section>

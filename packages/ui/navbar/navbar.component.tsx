@@ -1,49 +1,52 @@
-import { FC, useEffect, useRef } from "react";
-import NavbarItem, { INavbarItemProps } from "./navbar-item.component";
-import { StyledNavbar } from "./navbar.style";
-import { Sidebar } from "./sidebar";
+import { Link, Navbar as NextNavbar } from "@nextui-org/react";
+import { FC } from "react";
 
 interface INavbarProps {
-  items: INavbarItemProps[];
-  hideAt?: number;
-  onClick?: (event: React.MouseEvent) => void;
+  items: {
+    isActive?: boolean;
+    label: string;
+    href: string;
+  }[];
 }
 
-export const Navbar: FC<INavbarProps> = ({ items, onClick, hideAt = 400 }) => {
-  const navbarRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const updateTop = () => {
-      const isShown = window.pageYOffset < hideAt;
-      const distanceToTop = 1 - window.pageYOffset / hideAt + 0.5;
-
-      if (navbarRef.current) {
-        navbarRef.current.style.top = `${isShown ? 4 : -100}px`;
-        navbarRef.current.style.opacity = (
-          isShown ? distanceToTop : 0
-        ).toString();
-      }
-    };
-
-    updateTop();
-    window.addEventListener("scroll", updateTop);
-
-    return () => {
-      window.removeEventListener("scroll", updateTop);
-    };
-  }, [hideAt]);
-
+export const Navbar: FC<INavbarProps> = ({ items }) => {
   return (
-    <>
-      <StyledNavbar data-hidden-below-xl ref={navbarRef} onClick={onClick}>
-        <ul>
-          {items.map((item) => (
-            <NavbarItem key={item.title} {...item} />
-          ))}
-        </ul>
-      </StyledNavbar>
+    <NextNavbar isCompact shouldHideOnScroll>
+      <NextNavbar.Toggle aria-label="toggle navigation" showIn="xs" />
 
-      <Sidebar items={items} />
-    </>
+      <NextNavbar.Content
+        enableCursorHighlight
+        activeColor="primary"
+        hideIn="xs"
+      >
+        {items.map((item) => (
+          <NextNavbar.Item activeColor="primary" isActive={item.isActive}>
+            <NextNavbar.Link
+              key={item.label}
+              href={item.href}
+              activeColor="secondary"
+            >
+              {item.label}
+            </NextNavbar.Link>
+          </NextNavbar.Item>
+        ))}
+      </NextNavbar.Content>
+
+      <NextNavbar.Collapse showIn="xs">
+        {items.map((item) => (
+          <NextNavbar.CollapseItem key={item.label}>
+            <Link
+              color="inherit"
+              css={{
+                minWidth: "100%",
+              }}
+              href={item.href}
+            >
+              {item.label}
+            </Link>
+          </NextNavbar.CollapseItem>
+        ))}
+      </NextNavbar.Collapse>
+    </NextNavbar>
   );
 };

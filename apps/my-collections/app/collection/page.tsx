@@ -1,7 +1,6 @@
 "use client";
 
-import { useCallback } from "react";
-import { Box } from "ui";
+import { Container } from "@nextui-org/react";
 import { CollectionCard } from "./(collection-card)/collection-card.component";
 import { dummyCollection } from "./[name]/collection.dummy";
 
@@ -11,18 +10,20 @@ const CollectionsPage = () => {
   const collections = [dummyCollection];
 
   return (
-    <Box
-      component="section"
+    <Container
+      as="section"
       display="flex"
-      justifyContent="center"
-      flexWrap="wrap"
+      justify="center"
+      wrap="wrap"
       gap={4}
-      padding="10%"
+      css={{
+        padding: "10%",
+      }}
     >
       {collections.map((collection) => (
         <CollectionCard collection={collection} />
       ))}
-    </Box>
+    </Container>
   );
 };
 
