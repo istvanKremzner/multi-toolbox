@@ -1,8 +1,9 @@
 "use client";
 
-import { CreateTheme, NextUIProvider } from "@nextui-org/react";
+import { CreateTheme, CssBaseline, NextUIProvider } from "@nextui-org/react";
 import { FC } from "react";
 import { useTheme } from "../theme";
+import { SSRProvider } from "@react-aria/ssr";
 
 interface IProvidersProps {
   children: React.ReactNode;
@@ -20,5 +21,9 @@ export const Providers: FC<IProvidersProps> = ({ children }) => {
     return null;
   }
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return (
+    <SSRProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </SSRProvider>
+  );
 };

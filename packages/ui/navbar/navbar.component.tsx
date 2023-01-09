@@ -20,15 +20,14 @@ export const Navbar: FC<INavbarProps> = ({ items }) => {
         hideIn="xs"
       >
         {items.map((item) => (
-          <NextNavbar.Item
+          <NextNavbar.Link
             key={item.label}
+            href={item.href}
             activeColor="primary"
             isActive={item.isActive}
           >
-            <NextNavbar.Link href={item.href} activeColor="secondary">
-              {item.label}
-            </NextNavbar.Link>
-          </NextNavbar.Item>
+            {item.label}
+          </NextNavbar.Link>
         ))}
       </NextNavbar.Content>
 

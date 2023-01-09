@@ -1,23 +1,8 @@
 "use client";
 
+import { CssBaseline } from "@nextui-org/react";
 import React from "react";
-import { Navbar } from "ui";
-import { Providers } from "../components/provider.component";
-
-const navItems = [
-  {
-    label: "Home",
-    href: "/",
-  },
-  {
-    label: "Collections",
-    href: "/collection",
-  },
-  {
-    label: "About",
-    href: "/about",
-  },
-];
+import { LayoutBody } from "../components/layout-body.component";
 
 export default function RootLayout({
   children,
@@ -28,11 +13,8 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        <Providers>
-          <Navbar items={navItems} />
-
-          <main>{children}</main>
-        </Providers>
+        {CssBaseline.flush()}
+        <LayoutBody>{children}</LayoutBody>
       </body>
     </html>
   );
