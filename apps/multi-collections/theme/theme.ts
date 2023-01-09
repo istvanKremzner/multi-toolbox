@@ -1,6 +1,6 @@
 import { createTheme } from "@nextui-org/react";
 import { useMemo } from "react";
-import useDarkMode from "use-dark-mode";
+import useDarkMode from "@fisch0920/use-dark-mode";
 
 export const lightTheme = createTheme({
   type: "light",

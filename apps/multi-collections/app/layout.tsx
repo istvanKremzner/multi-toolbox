@@ -1,8 +1,8 @@
 "use client";
 
-import { NextUIProvider } from "@nextui-org/react";
+import React from "react";
 import { Navbar } from "ui";
-import { useTheme } from "../theme/theme";
+import { Providers } from "../components/provider.component";
 
 const navItems = [
   {
@@ -24,16 +24,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const theme = useTheme();
-
   return (
     <html>
       <head></head>
       <body>
-        <NextUIProvider theme={theme}>
+        <Providers>
           <Navbar items={navItems} />
+
           <main>{children}</main>
-        </NextUIProvider>
+        </Providers>
       </body>
     </html>
   );
