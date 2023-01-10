@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import { Navbar } from "ui";
 import { Providers } from "./provider.component";
 

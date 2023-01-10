@@ -1,6 +1,4 @@
 import { createTheme } from "@nextui-org/react";
-import { useMemo } from "react";
-import useDarkMode from "@fisch0920/use-dark-mode";
 
 export const lightTheme = createTheme({
   type: "light",
@@ -8,11 +6,9 @@ export const lightTheme = createTheme({
 
 export const darkTheme = createTheme({
   type: "dark",
+  theme: {
+    colors: {
+      background: "#2e2e2e",
+    },
+  },
 });
-
-export const useTheme = () => {
-  const isDark = useDarkMode(false);
-  const theme = useMemo(() => (isDark ? darkTheme : lightTheme), [isDark]);
-
-  return theme;
-};
