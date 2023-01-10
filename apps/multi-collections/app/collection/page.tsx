@@ -21,7 +21,7 @@ const CollectionsPage = () => {
       }}
     >
       {collections.map((collection) => (
-        <CollectionCard collection={collection} />
+        <CollectionCard key={collection.id} collection={collection} />
       ))}
     </Container>
   );

@@ -1,5 +1,6 @@
 import { Link, Navbar as NextNavbar } from "@nextui-org/react";
-import { FC } from "react";
+import NextLink from "next/link";
+import { FC, useCallback, MouseEvent } from "react";
 
 interface INavbarProps {
   items: {
@@ -10,6 +11,10 @@ interface INavbarProps {
 }
 
 export const Navbar: FC<INavbarProps> = ({ items }) => {
+  const stopLinkPropagation = useCallback((event: MouseEvent) => {
+    event.stopPropagation();
+  }, []);
+
   return (
     <NextNavbar isCompact shouldHideOnScroll>
       <NextNavbar.Toggle aria-label="toggle navigation" showIn="xs" />
@@ -20,14 +25,13 @@ export const Navbar: FC<INavbarProps> = ({ items }) => {
         hideIn="xs"
       >
         {items.map((item) => (
-          <NextNavbar.Link
+          <NextLink
             key={item.label}
             href={item.href}
-            activeColor="primary"
-            isActive={item.isActive}
+            onClick={stopLinkPropagation}
           >
             {item.label}
-          </NextNavbar.Link>
+          </NextLink>
         ))}
       </NextNavbar.Content>
 

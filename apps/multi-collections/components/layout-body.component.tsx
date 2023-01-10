@@ -1,6 +1,7 @@
 "use client";
 
-import { FC } from "react";
+import { useRouter } from "next/navigation";
+import { FC, useCallback } from "react";
 import { Navbar } from "ui";
 import { Providers } from "./provider.component";
 
@@ -23,12 +24,10 @@ const navItems = [
   },
 ];
 
-export const LayoutBody: FC<IRootLayoutProps> = ({ children }) => {
-  return (
-    <Providers>
-      <Navbar items={navItems} />
+export const LayoutBody: FC<IRootLayoutProps> = ({ children }) => (
+  <Providers>
+    <Navbar items={navItems} />
 
-      <main>{children}</main>
-    </Providers>
-  );
-};
+    <main>{children}</main>
+  </Providers>
+);
